@@ -2,11 +2,13 @@ import simplejson
 import string
 import difflib
 
-from BeautifulSoup import BeautifulStoneSoup
+#from BeautifulSoup import BeautifulStoneSoup
 
 matches = []
 
-reviews_data= open('fest.json')
+#reviews_data= open('fest.json')
+#reviews_data= open('listreviews.json')
+reviews_data= open('threeweeksreviews.json')
 reviews = simplejson.load(reviews_data)
 reviews_data.close()
 
@@ -55,14 +57,14 @@ for review in reviews:
                 hiscore = ratio
                 bestmatch = show_name
 
-#    if not success:
+    if not success:
         #print name.split(' ')
         #failures.append(review['review']['name'])
-#        if hiscore > 0.6:
-#            print name
-#            print bestmatch+" "+str(hiscore)
+        if hiscore > 0.6:
+            print name
+            print bestmatch+" "+str(hiscore)
 
-f = open('fest_matches.txt', 'w')
+f = open('threeweeks_matches.txt', 'w')
 f.write(str(matches))
 f.close()
 
